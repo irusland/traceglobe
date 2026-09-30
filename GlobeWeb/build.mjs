@@ -1,0 +1,10 @@
+import {build} from 'esbuild';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const base=path.dirname(fileURLToPath(import.meta.url));
+const result=await build({entryPoints:[path.join(base,'main.tsx')],bundle:true,write:false,format:'iife',minify:true,jsx:'automatic',target:['safari18'],define:{'process.env.NODE_ENV':'"production"'}});
+const css=fs.readFileSync(path.join(base,'globe.css'),'utf8');
+const html=`<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TraceGlobe</title><style>${css}</style></head><body><div id="root"></div><script>${result.outputFiles[0].text.replaceAll('</script','<\\/script')}</script></body></html>`;
+fs.writeFileSync(path.join(base,'../traceglobe/globe.html'),html);
+console.log('Bundled local globe into the macOS app.');

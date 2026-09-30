@@ -1,0 +1,3 @@
+Local globe renderer for TraceGlobe. Run npm install then npm run build after editing these sources. The generated HTML is bundled by Xcode. Live snapshots are passed from Swift using a restricted WebKit bridge.
+
+The local Debug app uses ordinary user permissions (not App Sandbox) to run Apple nettop and traceroute. It requires no root helper. Release retains the original sandbox configuration and needs a separate distribution design before shipping. The view shows public connected TCP/UDP endpoints available in nettop snapshots, not a lossless log of every packet. Short-lived connections between polls may be missed. Process names come from macOS; shared WebKit processes cannot always be attributed to Safari. Geolocation runs offline with DB-IP Lite and is approximate.

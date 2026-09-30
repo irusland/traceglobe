@@ -1,0 +1,5 @@
+IP geolocation data: DB-IP Lite, September 2026. Copyright DB-IP.com.
+Licensed under Creative Commons Attribution 4.0 International.
+https://db-ip.com/db/download/ip-to-city-lite
+https://creativecommons.org/licenses/by/4.0/
+Locations are approximate. Database included unmodified.
